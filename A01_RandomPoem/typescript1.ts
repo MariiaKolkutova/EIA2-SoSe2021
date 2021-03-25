@@ -16,7 +16,7 @@ namespace randompoem {
         console.log(werte);
     }
     //Funktion
-    function getVerse (_subjects: string[], _predicates: string[], _objects: string[]) {
+    function getVerse (_subjects: string[], _predicates: string[], _objects: string[]): string {
         
         let vers: string = "";
         let randomNumberSubjects: number = Math.floor(Math.random() * Math.floor(_subjects.length));
