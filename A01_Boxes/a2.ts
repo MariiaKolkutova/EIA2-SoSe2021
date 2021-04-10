@@ -1,4 +1,4 @@
- namespace Boxes {
+namespace Boxes {
     debugger;
     let n: number = 5;
     let color: string;
