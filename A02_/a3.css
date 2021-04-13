@@ -1,0 +1,25 @@
+span {
+    position: fixed;
+    border: thick solid black;
+}
+#div0 {
+    left: 100px;
+    border: thick solid black;
+    position: absolute;
+    height: 550px;
+    width: 500px;
+}
+#div1 {
+    left: 900px;
+    border: thick solid black;
+    position: absolute;
+    height: 550px;
+    width: 500px;
+}
+
+h1 {
+    border-style: solid;
+    border: black;
+    left: 635px;
+    position: relative;
+}
