@@ -5,30 +5,32 @@ namespace L02_Load {
     function handleLoad(): void {
 
         document.addEventListener("mousemove", setInfoBox);
+
         document.addEventListener("click", logInfo);
-
         document.addEventListener("keyup", logInfo);
-        document.body.addEventListener("click", logInfo);
 
-        document.addEventListener("click", setInfoBox);
+        document.body.addEventListener("click", logInfo);
         document.body.addEventListener("keyup", logInfo);
 
-        document.querySelector("#div0").addEventListener("click", logInfo);
-        document.querySelector("#div0").addEventListener("keyup", logInfo);
+        let documentDiveElements: NodeListOf<HTMLDivElement> = document.querySelectorAll("div");
 
-        document.querySelector("#div1").addEventListener("click", logInfo);
-        document.querySelector("#div1").addEventListener("keyup", logInfo);
+        for (let i: number = 0; i < documentDiveElements.length; i++) {
+
+            documentDiveElements[i].addEventListener("click", logInfo);
+            documentDiveElements[i].addEventListener("keyup", logInfo);
+        }
     }
 
     function setInfoBox(_event: MouseEvent): void {
         let x: number = _event.clientX;
         let y: number = _event.clientY;
-        let coordinates: string = "X coords: " + x + ", Y coords: " + y;
+        let mouseCoordinates: string = "X coords: " + x + ", Y coords: " + y;
 
-        let theTarget = _event.target;
-        let span: HTMLSpanElement = document.querySelector("span");
-        span.innerHTML = coordinates + theTarget;
+        let theTarget: EventTarget = <EventTarget>_event.target;
 
+        let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector("span");
+
+        span.innerHTML = mouseCoordinates + theTarget;
         span.style.left = x + "px";
         span.style.top = y + "px";
     }
