@@ -7,20 +7,20 @@ var L02_Load;
         document.addEventListener("click", logInfo);
         document.addEventListener("keyup", logInfo);
         document.body.addEventListener("click", logInfo);
-        document.addEventListener("click", setInfoBox);
         document.body.addEventListener("keyup", logInfo);
-        document.querySelector("#div0").addEventListener("click", logInfo);
-        document.querySelector("#div0").addEventListener("keyup", logInfo);
-        document.querySelector("#div1").addEventListener("click", logInfo);
-        document.querySelector("#div1").addEventListener("keyup", logInfo);
+        let documentDiveElements = document.querySelectorAll("div");
+        for (let i = 0; i < documentDiveElements.length; i++) {
+            documentDiveElements[i].addEventListener("click", logInfo);
+            documentDiveElements[i].addEventListener("keyup", logInfo);
+        }
     }
     function setInfoBox(_event) {
         let x = _event.clientX;
         let y = _event.clientY;
-        let coordinates = "X coords: " + x + ", Y coords: " + y;
+        let mouseCoordinates = "X coords: " + x + ", Y coords: " + y;
         let theTarget = _event.target;
         let span = document.querySelector("span");
-        span.innerHTML = coordinates + theTarget;
+        span.innerHTML = mouseCoordinates + theTarget;
         span.style.left = x + "px";
         span.style.top = y + "px";
     }
