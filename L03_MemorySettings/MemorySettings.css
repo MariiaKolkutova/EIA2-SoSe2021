@@ -1,0 +1,11 @@
+html{
+    background-color: var(--background);
+    color: var(--fontColor);
+    font-family: var(--fontFamily);
+  }
+.hidden {
+  visibility: hidden;
+}
+.hidden2{
+  display: none;
+}
