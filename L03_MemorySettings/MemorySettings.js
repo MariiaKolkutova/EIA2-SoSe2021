@@ -10,13 +10,19 @@ var MemoryGame;
     let savingCards = [];
     let startButton;
     let form;
-    window.addEventListener("load", handleLoad);
     let properties = [];
+    //Timer
+    let seconds = 0;
+    let minutes = 0;
+    let hours = 0;
+    let timer = document.querySelector("#timer");
+    window.addEventListener("load", handleLoad);
     function handleLoad() {
         startButton = document.querySelector("#startButton");
         form = document.querySelector("#formElement");
         form.addEventListener("change", handleChange);
         startButton.addEventListener("click", createCardboard);
+        cardsSpace = document.querySelector("#memoryField");
     }
     function handleChange(_event) {
         _event.preventDefault();
@@ -39,6 +45,8 @@ var MemoryGame;
         }
         cardsArray.sort(() => 0.5 - Math.random());
         cardsSpace.innerHTML = "";
+        document.body.style.background = properties[2];
+        document.body.style.fontFamily = properties[5];
         for (let index = 0; index < cardsArray.length; index++) {
             console.log(cardsArray.length);
             let cards = document.createElement("div");
@@ -52,7 +60,7 @@ var MemoryGame;
             let span = document.querySelectorAll("span");
             span[index].classList.add("hidden");
         }
-        //Starttimer
+        startTimer();
     }
     function flipcards(_event) {
         let target = _event.target;
@@ -83,9 +91,23 @@ var MemoryGame;
             savingCards = [];
         }
     }
+    function startTimer() {
+        setInterval(function () {
+            seconds++;
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes >= 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            timer.innerHTML = hours + ":" + minutes + ":" + seconds;
+        }, 1000);
+    }
     function checkTheWinner() {
         if (amountOfPairs == foundPairs) {
-            window.alert("Glückwunsch" + "Spielzeit: ");
+            window.alert("Glückwunsch" + "Spielzeit beträgt: " + hours + ":" + minutes + ":" + seconds + " Drücke F5");
             //stoptimer
         }
     }

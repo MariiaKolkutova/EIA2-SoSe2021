@@ -1,11 +1,53 @@
-html{
-    background-color: var(--background);
-    color: var(--fontColor);
-    font-family: var(--fontFamily);
-  }
+body {
+  justify-content: center; 
+  align-items: center;
+  display: grid;
+  font-family: Arial, Times, sans-serif;
+}
 .hidden {
   visibility: hidden;
 }
 .hidden2{
   display: none;
+}
+#timer {
+  text-align: center;
+  justify-content: center; 
+  align-items: center;
+}
+#memoryField{
+  text-align: center;
+  justify-content: center; 
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1em;
+}
+#memoryField > div {
+  position: relative;
+}
+#memoryField > div > span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#startButton{
+  text-align: center;
+  justify-content: center; 
+  align-items: center;
+  position: relative;
+  left: 80px;
+}
+#formElement{
+  text-align: center;
+  justify-content: center; 
+  align-items: center;
+
+}
+.p{
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
 }

@@ -1,4 +1,5 @@
 namespace MemoryGame {
+
     //var
     let foundPairs: number;
     let amountOfPairs: number = 0;
@@ -8,14 +9,22 @@ namespace MemoryGame {
     let savingCards: HTMLElement[] = [];
     let startButton: HTMLElement;
     let form: HTMLElement;
-    window.addEventListener("load", handleLoad);
     let properties: string[] = [];
+    
+    //Timer
+    let seconds: number = 0;
+    let minutes: number = 0;
+    let hours: number = 0;
+    let timer: HTMLElement = <HTMLElement>document.querySelector("#timer");
+
+    window.addEventListener("load", handleLoad);
 
     function handleLoad(): void {
         startButton = <HTMLElement>document.querySelector("#startButton");
         form = <HTMLElement>document.querySelector("#formElement");
         form.addEventListener("change", handleChange);
         startButton.addEventListener("click", createCardboard);
+        cardsSpace = <HTMLDivElement>document.querySelector("#memoryField");
     }
 
     function handleChange(_event: Event): void {
@@ -26,7 +35,7 @@ namespace MemoryGame {
         for (let entry of data) {
             properties.push(String(entry[1]));
             console.log(properties);
-        }  
+        }
     }
 
     function createCardboard(): void {
@@ -39,8 +48,13 @@ namespace MemoryGame {
                 cardsArray.push(allCards[m]);
             }
         }
+
         cardsArray.sort(() => 0.5 - Math.random());
         cardsSpace.innerHTML = "";
+
+        document.body.style.background = properties[2];
+        document.body.style.fontFamily = properties[5];
+
         for (let index: number = 0; index < cardsArray.length; index++) {
             console.log(cardsArray.length);
             let cards: HTMLElement = document.createElement("div");
@@ -54,10 +68,11 @@ namespace MemoryGame {
             let span: NodeListOf<HTMLElement> = document.querySelectorAll("span");
             span[index].classList.add("hidden");
         }
-        //Starttimer
+        startTimer();
     }
+
     function flipcards(_event: MouseEvent): void {
-        let target: HTMLElement = <HTMLElement> _event.target;
+        let target: HTMLElement = <HTMLElement>_event.target;
         savingCards.push(target);
         savingCards[0].style.background = "white";
         savingCards[0].querySelector("span")?.classList.remove("hidden");
@@ -68,29 +83,43 @@ namespace MemoryGame {
             setTimeout(compareCards, 2000);
         }
     }
-    
+
     function compareCards(): void {
         let spanValue0: string = <string>savingCards[0].querySelector("span")?.innerHTML;
         let spanValue1: string = <string>savingCards[1].querySelector("span")?.innerHTML;
         if (spanValue0 == spanValue1) {
-          savingCards[0].classList.add("hidden");
-          savingCards[1].classList.add("hidden");
-          savingCards = [];
-          amountOfPairs++;
-          checkTheWinner();
+            savingCards[0].classList.add("hidden");
+            savingCards[1].classList.add("hidden");
+            savingCards = [];
+            amountOfPairs++;
+            checkTheWinner();
         }
         else
-        if (spanValue0 != spanValue1) {
-            savingCards[0].style.background = properties[4]; 
-            savingCards[1].style.background = properties[4];
-            savingCards[0].querySelector("span")?.classList.add("hidden");
-            savingCards[1].querySelector("span")?.classList.add("hidden");
-            savingCards = [];
-        }
+            if (spanValue0 != spanValue1) {
+                savingCards[0].style.background = properties[4];
+                savingCards[1].style.background = properties[4];
+                savingCards[0].querySelector("span")?.classList.add("hidden");
+                savingCards[1].querySelector("span")?.classList.add("hidden");
+                savingCards = [];
+            }
+    }
+    function startTimer(): void {
+        setInterval(function (): void {
+            seconds++;
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes >= 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            timer.innerHTML = hours + ":" + minutes + ":" + seconds;
+        },          1000);
     }
     function checkTheWinner(): void {
         if (amountOfPairs == foundPairs) {
-            window.alert("Glückwunsch" + "Spielzeit: ");
+            window.alert("Glückwunsch" + "Spielzeit beträgt: " + hours + ":" + minutes + ":" + seconds + " Drücke F5");
             //stoptimer
         }
     }

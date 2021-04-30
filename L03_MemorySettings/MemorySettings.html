@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Memory Game</title>
+    <title>L03, MemorySettings</title>
     <link rel="stylesheet" href="./MemorySettings.css">
     <script src="./MemorySettings.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -17,13 +19,13 @@
         <div class="cardPairs">
             <p>card pairs:</p>
             <input name="cardPairs1" type="number" id="pairNumber" min="5" max="25" step="1">
-            
+
         </div>
 
         <div class="cardsSlider">
             <p>card size: </p>
             <input name="cardSize1" type="range" min="50" max="250" value="10">
-            
+
         </div>
 
         <div class="colors">
@@ -48,15 +50,16 @@
                 <label for="Calibri">Calibri</label>
 
                 <input name="font2" type="radio" id="helvetica" name="fontFamily3" value="helvetica">
-                <label for="TomesNewRoman">TomesNewRoman</label>
+                <label for="TomesNewRoman">Sans-serif</label>
             </label>
         </div>
-       
+
     </form>
     <p>
-        <button id="startButton">start</button>
+        <button id="startButton" name="startButton">START</button>
     </p>
     <div id="memoryField"></div>
+    <p id="timer" name="timer"></p>
 </body>
 
 </html>
