@@ -17,31 +17,29 @@
     <form id="formElement">
 
         <div class="cardPairs">
-            <p>card pairs:</p>
-            <input name="cardPairs1" type="number" id="pairNumber" min="5" max="25" step="1">
-
+            <p>Card pairs (5-25):</p>
+            <input name="cardPairs1" type="number" id="pairNumber" min="5" max="25" step="1" value="5">
         </div>
 
         <div class="cardsSlider">
-            <p>card size: </p>
-            <input name="cardSize1" type="range" min="50" max="250" value="10">
-
+            <p>Card size: </p>
+            <input name="cardSize1" type="range" min="50" max="250" value="10" step="1">
         </div>
 
         <div class="colors">
-            <p>color for:</p>
-            <label for="background">Background</label>
+            <p>Color for:</p>
+            <label for="background">Field background: </label>
             <input name="color1" id="background" type="color" value="#ffffff"><br>
 
-            <label for="fontColor">Font</label>
+            <label for="fontColor">Font: </label>
             <input name="color2" id="fontColor" type="color" value="#ffffff"><br>
 
-            <label for="cardsColor">Cards background </label>
+            <label for="cardsColor">Cards background: </label>
             <input name="color3" id="cardsColor" type="color" value="#ffffff"><br>
         </div>
 
         <div class="fonts">
-            <p>fonts: </p>
+            <p>Fonts: </p>
             <label id="fontFamily">
                 <input name="font1" type="radio" id="monospace" name="fontFamily1" value="monospace">
                 <label for="Arial">Arial</label>
@@ -49,7 +47,7 @@
                 <input name="font2" type="radio" id="geneva" name="fontFamily2" value="geneva">
                 <label for="Calibri">Calibri</label>
 
-                <input name="font2" type="radio" id="helvetica" name="fontFamily3" value="helvetica">
+                <input name="font3" type="radio" id="helvetica" name="fontFamily3" value="helvetica">
                 <label for="TomesNewRoman">Sans-serif</label>
             </label>
         </div>
