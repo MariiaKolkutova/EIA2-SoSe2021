@@ -5,3 +5,9 @@
 body {
  background-color:rgb(171, 171, 171);
 }
+h1 {
+    position: relative;
+    margin-left: 650px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
