@@ -14,10 +14,10 @@ var canvas;
             let firstNumber = Math.floor(Math.random() * Math.floor(canvas.width));
             let secondNumber = Math.floor(Math.random() * Math.floor(canvas.height));
             let thrirdNumber = Math.floor(Math.random() * Math.floor(5));
-            let fourthNumber = Math.floor(Math.random() * Math.floor(4));
+            let fourthNumber = Math.floor(Math.random() * Math.floor(40));
             //Kreis
             crc2.beginPath();
-            crc2.arc(firstNumber, secondNumber, 40, 0, fourthNumber * Math.PI, true);
+            crc2.arc(firstNumber, secondNumber, fourthNumber, 0, 4 * Math.PI, true);
             crc2.strokeStyle = canvasColour[thrirdNumber];
             crc2.stroke();
             //Path
@@ -29,12 +29,12 @@ var canvas;
             let firstNumber = Math.floor(Math.random() * Math.floor(canvas.width));
             let secondNumber = Math.floor(Math.random() * Math.floor(canvas.height));
             let thrirdNumber = Math.floor(Math.random() * Math.floor(5));
-            let fourthNumber = Math.floor(Math.random() * Math.floor(4));
+            let fourthNumber = Math.floor(Math.random() * Math.floor(40));
             //Linien
             crc2.beginPath();
             crc2.moveTo(0, 0);
             crc2.lineTo(canvas.width, canvas.height);
-            crc2.arc(firstNumber, secondNumber, 40, 0, fourthNumber * Math.PI, true);
+            crc2.arc(firstNumber, secondNumber, fourthNumber, 0, 4 * Math.PI, true);
             crc2.strokeStyle = canvasColour[thrirdNumber];
             crc2.stroke();
         }
