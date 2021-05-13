@@ -1,6 +1,8 @@
 namespace CanvasAlley {
 
     window.addEventListener("load", handeLoad);
+    
+    //Komilitonen mit denen zusammengearbeitet: Huu Thien Phan Ngoc, Mona Kabelka
 
     let canvas: HTMLCanvasElement;
     let crc2: CanvasRenderingContext2D;
@@ -30,7 +32,7 @@ namespace CanvasAlley {
         drawCloud({ x: 900, y: 100 }, { x: 450, y: 75 });
         drawCloud({ x: 800, y: 120 }, { x: 450, y: 100 });
         drawFlower1(-10, -130);
-        drawFlower2(-20, -130);
+        drawFlower2(-20, -100);
     }
 
     function drawBackground(): void {
@@ -103,6 +105,8 @@ namespace CanvasAlley {
     }
 
     function drawTree(_min: number, _max: number): void {
+
+        let treesColors: string[] = [ "#182E1A", "#224225", "#356E3C"];
         //Variablen 
         let stepMin: number = 50;
         let stepMax: number = 150;
@@ -124,7 +128,7 @@ namespace CanvasAlley {
                 crc2.lineTo(80, y1);
                 crc2.lineTo(15, y2);
                 crc2.closePath();
-                crc2.fillStyle = "#06472A";
+                crc2.fillStyle = treesColors[x];
                 crc2.fill();
                 //
                 y1 += -40;
@@ -202,7 +206,7 @@ namespace CanvasAlley {
         
         //Variablen 
         let stepMin: number = 10;
-        let stepMax: number = 80;
+        let stepMax: number = 90;
         let x: number = 0;
         let horizon: number = crc2.canvas.height * golden;
 

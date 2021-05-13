@@ -2,6 +2,7 @@
 var CanvasAlley;
 (function (CanvasAlley) {
     window.addEventListener("load", handeLoad);
+    //Komilitonen mit denen zusammengearbeitet: Huu Thien Phan Ngoc, Mona Kabelka
     let canvas;
     let crc2;
     let golden = 0.62;
@@ -21,7 +22,7 @@ var CanvasAlley;
         drawCloud({ x: 900, y: 100 }, { x: 450, y: 75 });
         drawCloud({ x: 800, y: 120 }, { x: 450, y: 100 });
         drawFlower1(-10, -130);
-        drawFlower2(-20, -130);
+        drawFlower2(-20, -100);
     }
     function drawBackground() {
         //Gradient für den Backround 
@@ -82,6 +83,7 @@ var CanvasAlley;
         crc2.restore();
     }
     function drawTree(_min, _max) {
+        let treesColors = ["#182E1A", "#224225", "#356E3C"];
         //Variablen 
         let stepMin = 50;
         let stepMax = 150;
@@ -103,7 +105,7 @@ var CanvasAlley;
                 crc2.lineTo(80, y1);
                 crc2.lineTo(15, y2);
                 crc2.closePath();
-                crc2.fillStyle = "#06472A";
+                crc2.fillStyle = treesColors[x];
                 crc2.fill();
                 //
                 y1 += -40;
@@ -169,7 +171,7 @@ var CanvasAlley;
     function drawFlower2(_min, _max) {
         //Variablen 
         let stepMin = 10;
-        let stepMax = 80;
+        let stepMax = 90;
         let x = 0;
         let horizon = crc2.canvas.height * golden;
         do {
