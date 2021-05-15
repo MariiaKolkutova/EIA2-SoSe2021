@@ -2,7 +2,8 @@ namespace CanvasAlley {
 
     window.addEventListener("load", handeLoad);
     
-    //Komilitonen mit denen zusammengearbeitet: Huu Thien Phan Ngoc, Mona Kabelka
+    //Komilitonen mit denen ich zusammengearbeitet habe: Huu Thien Phan Ngoc, Mona Kabelka und Cristina Däschner
+    //Sonne, Wolken und Berge wurden übernohmen und verändert von der Inverted Classroom
 
     let canvas: HTMLCanvasElement;
     let crc2: CanvasRenderingContext2D;
@@ -48,7 +49,7 @@ namespace CanvasAlley {
     }
 
     function drawMountain(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
-        console.log("Mountains", _position, _min, _max);
+        
         /*größerere Schritte= größerer Abstand & mehr größeren Berge 
         vs kleinere Schritte= kleiner Abstand & kleinere + öter Ausschläge*/
         let stepMin: number = 50;
@@ -63,7 +64,7 @@ namespace CanvasAlley {
         crc2.beginPath();
         crc2.moveTo(0, 0);
         crc2.lineTo(0, -_max);
-        /* do schleife= es macht etwas bis while, x solange nicht größer als canvas.width */
+        /* do schleife= es macht etwas bis while, x solange nicht größer als canvas.width, do bis das passier */
         do {
             // x wird immer drauf addier +=
             // x darf nicht kleiner als 50 werden, deswegen stepmin +
@@ -71,7 +72,7 @@ namespace CanvasAlley {
             let y: number = -_min - Math.random() * (_max - _min);
             crc2.lineTo(x, y);
         } while (x < crc2.canvas.width);
-
+        //wird da durchgezogen
         crc2.lineTo(x, 0);
         //schließt den Path
         crc2.closePath();
@@ -85,33 +86,37 @@ namespace CanvasAlley {
 
         //neue Nullstelle wird anulliert
         crc2.restore();
+
+        console.log("Mountains", _position, _min, _max);
     }
     function drawSun(_position: Vector): void {
-        console.log("Sun", _position);
 
-        let r1: number = 10;
-        let r2: number = 80;
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
-
+        let firstNumber: number = 10;
+        let secondNumber: number = 80;
+        let gradient: CanvasGradient = crc2.createRadialGradient (0, 0, firstNumber, 0, 0, secondNumber);
+        //Farbverlauf
         gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
         gradient.addColorStop(1, "HSLA(60, 100%, 20%, 0)");
 
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.fillStyle = gradient;
-        crc2.arc(0, 0, r2, 0, 2 * Math.PI);
+        crc2.arc(0, 0, secondNumber, 0, 2 * Math.PI);
         crc2.fill();
         crc2.restore();
+
+        console.log("Sun", _position);
     }
 
     function drawTree(_min: number, _max: number): void {
-
+        //Dreiecke untersch. Farben
         let treesColors: string[] = [ "#182E1A", "#224225", "#356E3C"];
         //Variablen 
         let stepMin: number = 50;
         let stepMax: number = 150;
         let x: number = 0;
         let horizon: number = crc2.canvas.height * golden;
+        //Log
         do {
             let y: number = -_min - Math.random() * (_max - _min);
             crc2.save();
@@ -122,7 +127,7 @@ namespace CanvasAlley {
             let y1: number = -40;
             let y2: number = -100;
             for (let x: number = 0; x < 3; x++) {
-                //Dreiecke
+                //Dreiecke -> 3, übereinander
                 crc2.beginPath();
                 crc2.moveTo(-50, y1);
                 crc2.lineTo(80, y1);
@@ -143,20 +148,21 @@ namespace CanvasAlley {
     function drawCloud(_position: Vector, _size: Vector): void {
         console.log("Cloud", _position, _size);
 
-        let nParticles: number = 30;
-        let radiusParticle: number = 50;
+        let numberParticles: number = 30;
+        let radius: number = 50;
         let particle: Path2D = new Path2D();
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radius);
 
-        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        particle.arc(0, 0, radius, 0, 2 * Math.PI);
         gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
         gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
 
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.fillStyle = gradient;
-
-        for (let drawn: number = 0; drawn < nParticles; drawn++) {
+        
+        //for schleife um mehrere zu erstellen 
+        for (let drawn: number = 0; drawn < numberParticles; drawn++) {
             crc2.save();
             let x: number = (Math.random() - 0.5) * _size.x;
             let y: number = - (Math.random() * _size.y);
@@ -174,7 +180,7 @@ namespace CanvasAlley {
         let stepMax: number = 80;
         let x: number = 0;
         let horizon: number = crc2.canvas.height * golden;
-
+        //Sterne
         do {
             let y: number = -_min - Math.random() * (_max - _min);
             crc2.save();
@@ -209,7 +215,7 @@ namespace CanvasAlley {
         let stepMax: number = 90;
         let x: number = 0;
         let horizon: number = crc2.canvas.height * golden;
-
+        //kreise
         do {
             let y: number = -_min - Math.random() * (_max - _min);
             crc2.save();
