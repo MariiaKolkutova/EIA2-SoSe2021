@@ -1,0 +1,44 @@
+html,body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background: url(./background/88.jpg) no-repeat center center fixed; 
+    background-repeat: no-repeat;
+    color: rgb(130, 0, 95);
+    top: 12px;
+    position: relative;
+    border-radius: 25px;
+}
+
+#h1{
+    font-size: 26px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 1000;
+    position: absolute;
+    margin-left: 100px;
+    
+}
+
+#leftover {
+    border-radius: 12px;
+    top: 200px;
+    border: rgb(255, 255, 255) solid 5px;
+    color: rgb(255, 255, 255);
+
+}
+
+#dayUpdate {
+    top: 20px;
+    position: relative;
+    background-color: rgb(224, 44, 155);
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+}
+#stockUpdate {
+    border-radius: 12px;
+    background-color: rgb(224, 44, 155);
+    color: rgb(255, 255, 255);
+    top: 20px;
+    position: relative;
+}
