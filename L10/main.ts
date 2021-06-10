@@ -1,6 +1,6 @@
 namespace L10 {
 
-    //Komilitonen mit denen ich zusammengearbeitet habe: Huu Thien Phan Ngoc, Mona Kabelka, Cristina Däschner und Timur Yildirim
+    //Komilitonen mit denen ich zusammengearbeitet habe: Huu Thien Phan Ngoc, Mona Kabelka, Cristina Däschner 
 
     export let counter: number = 0;
     export let pDOM: HTMLElement;

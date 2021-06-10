@@ -1,7 +1,7 @@
 "use strict";
 var L10;
 (function (L10) {
-    //Komilitonen mit denen ich zusammengearbeitet habe: Huu Thien Phan Ngoc, Mona Kabelka, Cristina Däschner und Timur Yildirim
+    //Komilitonen mit denen ich zusammengearbeitet habe: Huu Thien Phan Ngoc, Mona Kabelka, Cristina Däschner 
     L10.counter = 0;
     //damit man die komplette Länge mit der For schleife durhgehen kann und man die Position vom Food dazugehörige zum Tier weiss
     L10.amountStock = [{
