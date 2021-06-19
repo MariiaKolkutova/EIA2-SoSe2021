@@ -1,8 +1,7 @@
 namespace L11 {
    
     export class CloudNew  extends MovingAnimations {
-      protected posX: number;
-      protected posY: number; 
+    
       protected velocityX: number = 0.5;
       protected velocityY: number = 0.1;
 

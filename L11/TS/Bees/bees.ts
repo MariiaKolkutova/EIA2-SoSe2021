@@ -1,11 +1,7 @@
 namespace L11 {
 
     export class BeesNew extends MovingAnimations {
-        public posX: number;
-        public posY: number;
-        public velocityX: number;
-        public velocityY: number;
-        public randomScale: number;
+        
         private randomNumber: number = (Math.floor(Math.random() * 2000) + 1000);
         private counter: number = 0;
 
