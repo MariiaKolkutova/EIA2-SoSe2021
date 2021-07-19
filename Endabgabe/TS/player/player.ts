@@ -63,11 +63,11 @@ namespace Endabgabe {
             return this.team;
         }
 
-        setOnField(_onField: boolean): void {
+        public setOnField(_onField: boolean): void {
             this.onField = _onField;
         }
 
-        setOrigin(_position: Vector): void {
+        public setOrigin(_position: Vector): void {
             this.origin = _position;
         }
 
@@ -76,7 +76,7 @@ namespace Endabgabe {
             this.velocity = _minSpeed + Math.random() * (_maxSpeed - _minSpeed);
         }
 
-        setDistance(): void {
+        public setDistance(): void {
             let ballPos: Vector = ball.ballPos;
             this.distancePlayerBall = Vector.getdistance(ballPos, this.position);
         }
@@ -90,10 +90,10 @@ namespace Endabgabe {
             crc2.fillStyle = "black";
             crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             crc2.closePath();
-           
+
         }
 
-        changePlayer(_position: Vector): void {
+        public changePlayer(_position: Vector): void {
             this.newPosition = _position;
             console.log(this.newPosition);
             this.task = Task.changePlayer;
@@ -157,8 +157,8 @@ namespace Endabgabe {
         private movePlayer(_positon: Vector): void {
             let playerDistance: number = Vector.getdistance(_positon, this.position);
             let playerDiffernce: Vector = Vector.getDifference(_positon, this.position);
-            let ratio: number  = this.velocity / playerDistance;
-            playerDiffernce.scale(ratio);  
+            let ratio: number = this.velocity / playerDistance;
+            playerDiffernce.scale(ratio);
             this.position.add(playerDiffernce);
             this.draw();
         }
