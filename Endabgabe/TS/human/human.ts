@@ -1,7 +1,7 @@
 namespace Endabgabe {
     
     //Human = Superklasse, alles bezieht sich drauf, Grundaufbau  
-    export class Human {
+    export abstract class Human {
         
         //Protected_ drauf kann man nur in der klasse und in subklassen, nicht komplett vom außen zugreifen  
         //3 haupteigenschaften jedes Menschens -> Geschwindigkeit, Position und Jerseycolor 
